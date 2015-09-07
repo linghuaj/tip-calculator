@@ -25,37 +25,31 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        println("view did appear")
+        //NSUserDefaults store things like application settings, the current user, or a flag for whether a user has already seen a helpful hints popover.
         var defaults = NSUserDefaults.standardUserDefaults()
         var defaultTipIndex = defaults.integerForKey("default_tip_index")
         tipControl.selectedSegmentIndex = defaultTipIndex
     }
     
+    
     @IBAction func onEditingChanged(sender: AnyObject) {
-        var billAmount = (billField.text as NSString).doubleValue
         var tipPercentages = [0.18, 0.20, 0.22]
+        var billAmount = (billField.text as NSString).doubleValue
         var currTipIndex = tipControl.selectedSegmentIndex
         var currTipPercentage = tipPercentages[currTipIndex]
         var tip = billAmount * currTipPercentage
         var total = billAmount + tip
         tipLabel.text = String (format: "$%.2f", tip)
         totalLabel.text = String (format: "$%.2f", total)
-        
     }
-    
-
  
     
     @IBAction func onTap(sender: UITapGestureRecognizer) {
+        //when tap anywhere on the screen, cancel the number pad triggered by input
         view.endEditing(true)
     }
    
 
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
 
 }

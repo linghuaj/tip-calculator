@@ -20,32 +20,16 @@ class SettingViewController: UIViewController {
         tipControl.selectedSegmentIndex = defaultTipIndex
     }
     
-    
+    //when change setting, load it to NSUserDefaults as local storage.
     @IBAction func onChangeDefaultTip(sender: AnyObject) {
         var changedDefaultTip = tipControl.selectedSegmentIndex;
         var defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(changedDefaultTip, forKey: "default_tip_index")
         defaults.synchronize()
     }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     @IBAction func onClose(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
