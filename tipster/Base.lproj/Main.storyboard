@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RGi-wf-Vvf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tipster-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tipster" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,6 +82,13 @@
                             <outletCollection property="gestureRecognizers" destination="BlB-Fh-pnK" appends="YES" id="Ppb-0P-cxY"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Tipster" id="cWy-f1-o58">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="LwK-Tr-jwO">
+                            <connections>
+                                <segue destination="BIJ-6X-sOt" kind="modal" id="fPl-Xv-Ge4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="Avw-V3-hof" id="Jdt-c0-1dI"/>
                         <outlet property="tipControl" destination="5YT-oh-fev" id="JQr-NO-vzs"/>
@@ -97,7 +104,90 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="688" y="329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FPI-5y-ucn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RGi-wf-Vvf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2oR-pO-e1u">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="crz-fc-Tdb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lgq-vL-gbB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="gWl-cZ-dJs"/>
+            </objects>
             <point key="canvasLocation" x="156" y="329"/>
+        </scene>
+        <!--Setting Default Tip-->
+        <scene sceneID="OY2-56-J6e">
+            <objects>
+                <viewController id="lZS-GI-H85" customClass="SettingViewController" customModule="tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zcd-EM-rxi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="lyx-gz-h62">
+                                <rect key="frame" x="39" y="142" width="243" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="22%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onChangeDefaultTip:" destination="lZS-GI-H85" eventType="valueChanged" id="U80-aP-Nyj"/>
+                                    <action selector="onEditingChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Au1-ba-uVk"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set the default tip:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="auc-7J-UNR">
+                                <rect key="frame" x="39" y="86" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setting Default Tip" id="LNi-9N-0aW">
+                        <barButtonItem key="rightBarButtonItem" title="close" id="sts-wr-5Ub">
+                            <connections>
+                                <action selector="onClose:" destination="lZS-GI-H85" id="4Wf-qD-h6d"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tipControl" destination="lyx-gz-h62" id="7Un-by-SHm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2y-JU-0l8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1588" y="329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RF9-CB-qcO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BIJ-6X-sOt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7FH-fY-ia3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lZS-GI-H85" kind="relationship" relationship="rootViewController" id="ohk-1m-pVI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bjA-ud-h0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141" y="329"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

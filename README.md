@@ -4,6 +4,11 @@ This is a Tip Calculator application for iOS submitted as the [pre-assignment](h
 
 Time spent: [Write the number of hours you spend here]
 
+Reference:
+* https://gist.github.com/timothy1ee/6858b706304a2397a7e2
+* https://vimeo.com/102084767
+
+
 Completed:
 
 * [-] Required: User can enter a bill amount, choose a tip percentage, and see the tip and total values.
